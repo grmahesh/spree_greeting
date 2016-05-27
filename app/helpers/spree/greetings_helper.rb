@@ -8,7 +8,7 @@ module Spree
         variant_price_diff(variant)
       end
     end
-
+	  
 	  # returns the formatted price for the specified variant as a difference from greeting price
     def variant_price_diff(variant)
       variant_amount = variant.amount_in(current_currency)
