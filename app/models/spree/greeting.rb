@@ -33,7 +33,7 @@ module Spree
     #has_many :greeting_properties, dependent: :destroy, inverse_of: :greeting
     #has_many :properties, through: :greeting_properties
 
-    has_many :classifications, dependent: :delete_all, inverse_of: :greeting
+    has_many :classifications, dependent: :delete_all#, inverse_of: :greeting
     has_many :taxons, through: :classifications, before_remove: :remove_taxon
 
     has_many :greeting_promotion_rules, class_name: 'Spree::GreetingPromotionRule'
