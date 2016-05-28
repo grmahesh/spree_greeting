@@ -55,6 +55,10 @@ remove_column :spree_greetings, :discontinue_on
 end
 
 
+GreetingSearch inherits from Spree::Core::Search::Base and defines its own custom methods so add below code to config/initializer.rb
+
+Spree::Config.searcher_class = GreetingSearch
+
 
 Testing
 -------
