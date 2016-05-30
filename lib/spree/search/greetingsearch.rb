@@ -1,5 +1,5 @@
-module GreetingSearch
-   extend Spree::Core::Search::Base
+module Spree::Search
+	class Greeting < Spree::Core::Search::Base
 
 	def retrieve_greetings
 		@greetings = get_base_scop
@@ -28,17 +28,17 @@ module GreetingSearch
               if base_scop.respond_to?(:search_scopes) && base_scop.search_scopes.include?(scope_name.to_sym)
                 base_scop = base_scop.send(scope_name, *scope_attribute)
               else
-                base_scop = base_scop.merge(Spree::Product.ransack({scope_name => scope_attribute}).result)
+				  base_scop = base_scop.merge(Spree::Greeeting.ransack({scope_name => scope_attribute}).result)
               end
             end if search.is_a?(Hash)
             base_scop
           end
 	      
-	def get_greetings_conditions_for(base_scop, query)
+	      def get_greetings_conditions_for(base_scop, query)
             unless query.blank?
               base_scop = base_scop.like_any([:name, :description], query.split)
             end
             base_scop
           end
-	
+	end
 end

@@ -15,12 +15,7 @@ Spree::Core::Engine.routes.draw do
                 post :update_positions
               end
             end
-=begin      resources :images do
-              collection do
-                post :update_positions
-              end
-            end
-=end
+
             member do
               post :clone
               get :stock
@@ -32,9 +27,9 @@ Spree::Core::Engine.routes.draw do
             end
             resources :variants_including_master, only: [:update]
           end
-          delete '/greeting_properties/:id', to: "greeting_properties#destroy", as: :greeting_property
         end
         
+	  
         namespace :api, defaults: { format: 'json' } do
             namespace :v1 do
             
